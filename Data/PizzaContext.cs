@@ -3,6 +3,10 @@ using ContosoPizza.Models;
 namespace ContosoPizza.Data;
 public class PizzaContext : DbContext
 {
+    protected override void OnConfiguring(
+DbContextOptionsBuilder optionsBuilder)
+=> optionsBuilder.EnableSensitiveDataLogging();
+
     public PizzaContext(DbContextOptions<PizzaContext> options)
     : base(options)
     {

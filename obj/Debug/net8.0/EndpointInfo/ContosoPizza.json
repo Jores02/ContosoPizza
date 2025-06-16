@@ -218,6 +218,9 @@
   "components": {
     "schemas": {
       "Pizza": {
+        "required": [
+          "name"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -225,8 +228,9 @@
             "format": "int32"
           },
           "name": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
           },
           "sauce": {
             "$ref": "#/components/schemas/Sauce"
@@ -242,6 +246,9 @@
         "additionalProperties": false
       },
       "Sauce": {
+        "required": [
+          "name"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -249,13 +256,20 @@
             "format": "int32"
           },
           "name": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "isVegan": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
       },
       "Topping": {
+        "required": [
+          "name"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -263,8 +277,13 @@
             "format": "int32"
           },
           "name": {
-            "type": "string",
-            "nullable": true
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "calories": {
+            "type": "number",
+            "format": "double"
           }
         },
         "additionalProperties": false
